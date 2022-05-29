@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         responseViewModel = ViewModelProvider(this).get(ResponseViewModel::class.java)
-
+        setAdapter()
         CoroutineScope(Dispatchers.IO).launch {
             responseViewModel.callAPi()
         }
