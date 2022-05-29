@@ -1,0 +1,41 @@
+package com.example.myapplication.UI
+
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.myapplication.DATA.Item
+import com.example.myapplication.databinding.ItemLayoutBinding
+
+
+class ResponseAdapter(private val context: Context, private val responseList : List<Item>) : RecyclerView.Adapter<ResponseViewHolder>(){
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResponseViewHolder {
+        val itemLayoutBinding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return ResponseViewHolder(itemLayoutBinding)
+    }
+    @SuppressLint("SetTextI18n")
+    override fun onBindViewHolder(holder:ResponseViewHolder, pos: Int) {
+        val data = responseList[pos]
+        holder.itemLayoutBinding.apply {
+            videoTitle.text = data.snippet.title
+            Glide.with(context).load(data.snippet.thumbnails.high.url).into(videoThumbnail)
+            Glide.with(context).load(data.snippet.thumbnails.high.url).into(channelPicture)
+        }
+        holder.itemLayoutBinding.videoThumbnail.setOnClickListener { view: View? ->
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://www.youtube.com/watch?v=${data.id.videoId}")
+            intent.setPackage("com.google.android.youtube")
+            context.startActivity(intent)
+        }
+    }
+
+    override fun getItemCount(): Int {
+        return responseList.size
+    }
+}
+class ResponseViewHolder(val itemLayoutBinding: ItemLayoutBinding) : RecyclerView.ViewHolder(itemLayoutBinding.root)
