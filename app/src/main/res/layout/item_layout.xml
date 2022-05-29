@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:textAlignment="textStart"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             android:maxLines="2"
             android:ellipsize="end"
@@ -51,32 +51,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textAlignment="textStart"
             app:layout_constraintStart_toStartOf="@+id/videoTitle"
             app:layout_constraintTop_toBottomOf="@+id/videoTitle"
-            tools:text="TextView" />
-
-        <ImageView
-            android:id="@+id/separator1"
-            android:layout_width="2dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/channelName"
-            app:layout_constraintStart_toEndOf="@+id/channelName"
-            app:layout_constraintTop_toTopOf="@+id/channelName"
-            app:srcCompat="@drawable/text_dot_separator" />
-
-        <TextView
-            android:id="@+id/views"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:textSize="12sp"
-            android:textAlignment="textStart"
-            app:layout_constraintBottom_toBottomOf="@+id/channelName"
-            app:layout_constraintStart_toEndOf="@id/separator1"
-            app:layout_constraintTop_toTopOf="@+id/channelName"
             tools:text="TextView" />
 
         <ImageView
@@ -84,9 +62,9 @@
             android:layout_width="2dp"
             android:layout_height="2dp"
             android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/views"
-            app:layout_constraintStart_toEndOf="@id/views"
-            app:layout_constraintTop_toTopOf="@+id/views"
+            app:layout_constraintBottom_toBottomOf="@+id/channelName"
+            app:layout_constraintStart_toEndOf="@id/channelName"
+            app:layout_constraintTop_toTopOf="@+id/channelName"
             app:srcCompat="@drawable/text_dot_separator" />
 
         <TextView
@@ -94,11 +72,11 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="6dp"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textAlignment="textStart"
-            app:layout_constraintBottom_toBottomOf="@+id/views"
+            app:layout_constraintBottom_toBottomOf="@+id/channelName"
             app:layout_constraintStart_toEndOf="@+id/separator2"
-            app:layout_constraintTop_toTopOf="@+id/views"
+            app:layout_constraintTop_toTopOf="@+id/channelName"
             tools:text="TextView" />
 
         <ImageView
