@@ -1,4 +1,4 @@
-package com.example.myapplication.UI
+package com.example.myapplication.UI.views
 
 import android.os.Bundle
 import android.view.View
@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.API.NetworkHelperClass
 import com.example.myapplication.DATA.Item
 import com.example.myapplication.R
+import com.example.myapplication.UI.ResponseAdapter
+import com.example.myapplication.UI.viewmodel.ResponseViewModel
 import com.example.myapplication.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             responseViewModel.callAPi()
         }
 
-        this.responseViewModel.liveData.observe(this) {
+        responseViewModel.liveData.observe(this) {
             it.let {
                 when (it) {
                     is NetworkHelperClass.OnSuccess -> {

@@ -1,4 +1,4 @@
-package com.example.myapplication.UI
+package com.example.myapplication.UI.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,7 +13,7 @@ class ResponseViewModel : ViewModel() {
     private val responseRepository = ResponseRepository()
     private val mutableLiveData = MutableLiveData<NetworkHelperClass>()
     val liveData: LiveData<NetworkHelperClass> = mutableLiveData
-    fun callAPi() {
+    suspend fun callAPi() {
         CoroutineScope(Dispatchers.IO).launch {
             val response = responseRepository.getDataFromService()
             mutableLiveData.postValue(NetworkHelperClass.OnSuccess(response))

@@ -1,4 +1,4 @@
-package com.example.myapplication.UI
+package com.example.myapplication.UI.views
 
 import android.annotation.SuppressLint
 import android.content.Intent
