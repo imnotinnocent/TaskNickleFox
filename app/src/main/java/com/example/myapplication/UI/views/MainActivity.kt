@@ -13,6 +13,7 @@ import com.example.myapplication.R
 import com.example.myapplication.UI.ResponseAdapter
 import com.example.myapplication.UI.viewmodel.ResponseViewModel
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         responseViewModel = ViewModelProvider(this).get(ResponseViewModel::class.java)
 
-        setAdapter()
         CoroutineScope(Dispatchers.IO).launch {
             responseViewModel.callAPi()
         }
@@ -44,12 +44,13 @@ class MainActivity : AppCompatActivity() {
                         setAdapter()
                     }
                     else -> {
-                        Toast.makeText(this@MainActivity, "Error in loading.....", Toast.LENGTH_SHORT).show()
+                        showSnackBar()
                     }
                 }
             }
         }
     }
+
     private fun setAdapter() {
         responseAdapter = ResponseAdapter(this,list)
         val linearLayoutManager = LinearLayoutManager(this)
@@ -57,5 +58,12 @@ class MainActivity : AppCompatActivity() {
             adapter = responseAdapter
             layoutManager = linearLayoutManager
         }
+    }
+    private fun showSnackBar() {
+        val snack = Snackbar.make(findViewById(android.R.id.content), "Error in loading data.....", Snackbar.LENGTH_INDEFINITE)
+        snack.setAction("Dismiss") {
+           snack.dismiss()
+        }
+        snack.show()
     }
 }
