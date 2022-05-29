@@ -46,6 +46,13 @@ class ResponseAdapter(private val context: Context, private val responseList : L
             intent.setPackage("com.google.android.youtube")
             context.startActivity(intent)
         }
+        holder.itemLayoutBinding.imageView10.setOnClickListener {
+            var link = "https://www.youtube.com/watch?v=${data.id.videoId}"
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/plain"
+            intent.putExtra(Intent.EXTRA_TEXT, link)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
