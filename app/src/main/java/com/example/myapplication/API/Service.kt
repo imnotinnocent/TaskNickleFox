@@ -11,6 +11,7 @@ interface Service {
     suspend fun getAllResponse(
         @Query("part") part:String,
         @Query("q") q:String,
+        @Query("maxResults") maxResults:Int,
         @Query("key") key:String
     ) : ResponseModel
 }
