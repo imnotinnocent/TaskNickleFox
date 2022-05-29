@@ -2,12 +2,13 @@
 //
 //import androidx.paging.PagingSource
 //import androidx.paging.PagingState
-//import com.example.myapplication.API.Network
+//import com.example.myapplication.API.ServiceGenerator
 //import com.example.myapplication.DATA.Item
 //import com.example.myapplication.DATA.ResponseModel
+//import com.example.myapplication.DATA.Snippet
 //
 //class MoviePagingSource: PagingSource<Int, Item>() {
-//    private val apiClient = Network.getApiService()
+//    private val apiClient = ServiceGenerator.getService()
 //
 //    override fun getRefreshKey(state: PagingState<Int, Item>): Int? {
 //        return state.anchorPosition

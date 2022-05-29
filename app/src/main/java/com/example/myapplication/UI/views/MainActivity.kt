@@ -61,9 +61,6 @@ class MainActivity : AppCompatActivity() {
     }
     private fun showSnackBar() {
         val snack = Snackbar.make(findViewById(android.R.id.content), "Error in loading data.....", Snackbar.LENGTH_INDEFINITE)
-        snack.setAction("Dismiss") {
-           snack.dismiss()
-        }
-        snack.show()
+         snack.show()
     }
 }
