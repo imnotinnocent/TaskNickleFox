@@ -21,7 +21,7 @@ class ResponseAdapter(private val context: Context, private val responseList : L
         val itemLayoutBinding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ResponseViewHolder(itemLayoutBinding)
     }
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "SimpleDateFormat")
     override fun onBindViewHolder(holder:ResponseViewHolder, pos: Int) {
         val data = responseList[pos]
         holder.itemLayoutBinding.apply {
