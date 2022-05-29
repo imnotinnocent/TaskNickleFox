@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                         setAdapter()
                     }
                     else -> {
-                        Toast.makeText(this@MainActivity, "Error", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@MainActivity, "Error in loading.....", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
