@@ -1,6 +1,7 @@
 package com.example.myapplication.UI
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -34,6 +35,9 @@ class MainActivity : AppCompatActivity() {
             it.let {
                 when (it) {
                     is NetworkHelperClass.OnSuccess -> {
+                        binding.shimmerFrameLayout.stopShimmer()
+                        binding.recyclerView.visibility = View.VISIBLE
+                        binding.shimmerFrameLayout.visibility = View.GONE
                         list = it.responseList as ArrayList<Item>
                         setAdapter()
                     }
