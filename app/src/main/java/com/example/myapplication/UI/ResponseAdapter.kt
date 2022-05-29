@@ -16,7 +16,6 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class ResponseAdapter(private val context: Context, private val responseList : List<Item>) : RecyclerView.Adapter<ResponseViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResponseViewHolder {
         val itemLayoutBinding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false)
@@ -36,7 +35,6 @@ class ResponseAdapter(private val context: Context, private val responseList : L
             } catch (e: ParseException) {
                 e.printStackTrace()
             }
-
             videoTitle.text = data.snippet.title
             channelName.text = data.snippet.channelTitle
             Glide.with(context).load(data.snippet.thumbnails.high.url).into(videoThumbnail)

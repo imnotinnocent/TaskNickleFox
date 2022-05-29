@@ -12,4 +12,5 @@ object Network {
         .addConverterFactory(GsonConverterFactory.create())
         .client(OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build())
         .build()
+    fun getApiService():Service = getRetrofit().create(Service::class.java)
 }
